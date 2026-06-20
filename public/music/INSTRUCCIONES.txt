@@ -1,0 +1,3 @@
+Por favor, coloca aquí tus archivos de música en formato .mp3.
+Los nombres de los archivos deben coincidir con los que están configurados en el administrador (ej: song1.mp3, song2.mp3, song3.mp3).
+Si deseas agregar más canciones, solo pon el archivo aquí y luego edita las opciones en el código del archivo src/components/AdminDashboard.tsx.

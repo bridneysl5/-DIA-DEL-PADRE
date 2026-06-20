@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --main-gold: #D4AF37;
+  --main-navy: #0F172A;
+  --main-dark: #020617;
+  --main-light: #F8FAFC;
+}
+
+.font-cursive {
+  font-family: 'Pacifico', 'Playfair Display', cursive;
+  font-weight: normal;
+}
+
+@keyframes float-polaroid {
+  0%, 100% { transform: translateY(0px) rotate(1deg); }
+  50% { transform: translateY(-10px) rotate(-1deg); }
+}
+
+@keyframes float-bg-left {
+  0%, 100% { transform: translateY(0px) rotate(-8deg); }
+  50% { transform: translateY(-8px) rotate(-11deg); }
+}
+
+@keyframes float-bg-right {
+  0%, 100% { transform: translateY(0px) rotate(8deg); }
+  50% { transform: translateY(-8px) rotate(11deg); }
+}
+
+.animate-float-main {
+  animation: float-polaroid 5s ease-in-out infinite;
+}
+
+.animate-float-bg-left {
+  animation: float-bg-left 6s ease-in-out infinite;
+}
+
+.animate-float-bg-right {
+  animation: float-bg-right 5.5s ease-in-out infinite;
+}
