@@ -22,25 +22,9 @@ export async function POST(request: Request) {
       if (photo instanceof File) {
         const bytes = await photo.arrayBuffer();
         const buffer = Buffer.from(bytes);
-        const filename = `${Date.now()}-${photo.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
-        
-        const { data, error } = await supabase.storage
-          .from('uploads')
-          .upload(filename, buffer, {
-            contentType: photo.type,
-            upsert: false
-          });
-
-        if (error) {
-          console.error('Error uploading photo:', error);
-          throw error;
-        }
-
-        const { data: { publicUrl } } = supabase.storage
-          .from('uploads')
-          .getPublicUrl(filename);
-
-        photoUrls.push(publicUrl);
+        const base64 = buffer.toString('base64');
+        const dataUri = `data:${photo.type};base64,${base64}`;
+        photoUrls.push(dataUri);
       }
     }
 
