@@ -216,6 +216,7 @@ export default function AdminDashboard() {
                 <option value="song1.mp3">Canción 1 (Feliz Día)</option>
                 <option value="song2.mp3">Canción 2 (Deportes)</option>
                 <option value="song3.mp3">Canción 3 (Emotiva)</option>
+                <option value="song peroso.mpeg">Canción 4 (Peroso)</option>
               </select>
             ) : (
               <input type="file" required accept="audio/*" onChange={e => setCustomSong(e.target.files?.[0] || null)} className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" />
@@ -273,6 +274,7 @@ export default function AdminDashboard() {
                           <option value="song1.mp3">Canción 1 (Feliz Día)</option>
                           <option value="song2.mp3">Canción 2 (Deportes)</option>
                           <option value="song3.mp3">Canción 3 (Emotiva)</option>
+                          <option value="song peroso.mpeg">Canción 4 (Peroso)</option>
                         </select>
                       ) : (
                         <div>

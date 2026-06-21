@@ -77,9 +77,9 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
     });
     
     return NextResponse.json({ album });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error updating album:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json({ error: error.message || String(error) }, { status: 500 });
   }
 }
 
