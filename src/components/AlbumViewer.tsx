@@ -80,7 +80,8 @@ export default function AlbumViewer({ album }: { album: any }) {
   }, []);
 
   useEffect(() => {
-    audioRef.current = new Audio(`/music/${album.song}`);
+    const src = album.song.startsWith('data:') ? album.song : `/music/${album.song}`;
+    audioRef.current = new Audio(src);
     audioRef.current.loop = true;
     return () => {
       audioRef.current?.pause();

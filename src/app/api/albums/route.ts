@@ -9,7 +9,17 @@ export async function POST(request: Request) {
     const name = formData.get('name') as string;
     const theme = formData.get('theme') as string;
     const celebration = formData.get('celebration') as string || 'Cumpleaños';
-    const song = formData.get('song') as string;
+    const songEntry = formData.get('song');
+    let song = '';
+    
+    if (songEntry instanceof File) {
+      const bytes = await songEntry.arrayBuffer();
+      const buffer = Buffer.from(bytes);
+      song = `data:${songEntry.type};base64,${buffer.toString('base64')}`;
+    } else {
+      song = songEntry as string;
+    }
+
     const photos = formData.getAll('photos') as File[];
 
     if (!buyerId || !name || !theme || !song) {
